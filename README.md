@@ -1,12 +1,17 @@
 # GamesFinder
 
 Приложение разработанное под Android ОС для поиска видео игр.
+
 Данное приложение будет полезно геймерам желающим найти видео игры или информацию о них благодаря широкому выбору фильтров поиска.
 
 Стек технологий:
-!• Kotlin
+
+• Kotlin
+
 • Coroutines, Flow, StateFlow, SharedFlow
+
 • Архитектура MVVM
+
 • Retrofit2
 
 Макет фрагмента поиска:
@@ -16,4 +21,5 @@
 ![Screenshot_20220510-004756_GamesFinder](https://user-images.githubusercontent.com/75132297/167496438-5f3f545c-aead-4cde-bad7-57c2b87cc515.png)
 
 Разработчик:
+
 Смоленский Дмитрий
