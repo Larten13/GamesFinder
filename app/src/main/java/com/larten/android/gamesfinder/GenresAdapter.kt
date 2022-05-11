@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.larten.android.gamesfinder.data.Genre
 
 class GenresAdapter(
     private val context: Context,

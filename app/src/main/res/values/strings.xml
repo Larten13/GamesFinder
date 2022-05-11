@@ -16,4 +16,5 @@ GTA Online will provide a lot of additional challenge even for the experienced p
     <string name="most_popular_shooter">Most popular shooter</string>
     <string name="genre">Genre: Action</string>
     <string name="most_popular_genres">Most popular genres</string>
+    <string name="hint">Search game</string>
 </resources>

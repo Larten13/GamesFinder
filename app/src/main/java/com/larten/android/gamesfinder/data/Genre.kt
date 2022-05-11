@@ -1,4 +1,4 @@
-package com.larten.android.gamesfinder
+package com.larten.android.gamesfinder.data
 
 
 data class Genre (
