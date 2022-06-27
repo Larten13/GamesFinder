@@ -1,12 +1,15 @@
 package com.larten.android.gamesfinder.data
 
+import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class GenreModel(
-    val games_count: Int,
+    @Json(name = "games_count")
+    val gamesCount: Int,
+    @Json(name = "image_background")
+    val imageBackground: String,
     val id: Int,
-    val image_background: String,
     val name: String,
     val slug: String
 )
