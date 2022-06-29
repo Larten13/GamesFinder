@@ -1,6 +1,5 @@
 package com.larten.android.gamesfinder
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -25,21 +24,18 @@ class FinderViewModel: ViewModel() {
     }
 
     private fun refactorPageGamesModel(pageGamesModelRetrofit: PageGamesModelRetrofit): PageGamesModel {
-        val pageGamesModel: PageGamesModel?
-        pageGamesModel = PageGamesModel(
+        return PageGamesModel(
             count = pageGamesModelRetrofit.count,
             description = pageGamesModelRetrofit.description,
             next = pageGamesModelRetrofit.next,
             previous = pageGamesModelRetrofit.previous,
             results = refactorListGamesModel(pageGamesModelRetrofit.results)
         )
-        return pageGamesModel
     }
 
         private fun refactorListGamesModel(listGameModelRetrofit: List<GameModelRetrofit>): List<GameModel> {
-        val listGameModel: MutableList<GameModel> = ArrayList()
-        listGameModelRetrofit.forEach { gameModelRetrofit ->
-            val gameModel = GameModel(
+        return listGameModelRetrofit.map { gameModelRetrofit ->
+            GameModel(
                 backgroundImage = gameModelRetrofit.backgroundImage,
                 genres = gameModelRetrofit.genres.joinToString(",", "", "", -1, "") { it.name },
                 id = gameModelRetrofit.id,
@@ -48,8 +44,6 @@ class FinderViewModel: ViewModel() {
                 released = gameModelRetrofit.released,
                 slug = gameModelRetrofit.slug
             )
-            listGameModel.add(gameModel)
         }
-        return listGameModel
     }
 }
