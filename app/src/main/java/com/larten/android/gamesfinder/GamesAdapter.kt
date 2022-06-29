@@ -24,7 +24,6 @@ class GamesAdapter: RecyclerView.Adapter<GamesViewHolder>() {
         return listGames.size
     }
 
-
     fun setList(list: List<GameModel>) {
         listGames = list
         notifyDataSetChanged()

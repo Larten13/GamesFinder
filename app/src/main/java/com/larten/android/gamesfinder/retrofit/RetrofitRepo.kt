@@ -1,10 +1,9 @@
 package com.larten.android.gamesfinder.retrofit
 
-import com.larten.android.gamesfinder.data.PageGamesModel
-import retrofit2.Response
+import com.larten.android.gamesfinder.data.PageGamesModelRetrofit
 
 class RetrofitRepo {
-    suspend fun getGames(): Response<PageGamesModel> {
+    suspend fun getGames(): PageGamesModelRetrofit {
         return RetrofitInstance.api.getGames()
     }
 }
