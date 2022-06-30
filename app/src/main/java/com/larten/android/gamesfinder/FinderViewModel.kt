@@ -1,5 +1,6 @@
 package com.larten.android.gamesfinder
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,7 +12,8 @@ import com.larten.android.gamesfinder.retrofit.RetrofitRepo
 import kotlinx.coroutines.launch
 
 class FinderViewModel: ViewModel() {
-    val pageLiveData: MutableLiveData<PageGamesModel> = MutableLiveData()
+    private val _pageLiveData = MutableLiveData<PageGamesModel>()
+    val pageLiveData: LiveData<PageGamesModel> = _pageLiveData
     private lateinit var refactorPageGamesModel: PageGamesModel
     private val repository = RetrofitRepo()
 
@@ -19,7 +21,7 @@ class FinderViewModel: ViewModel() {
         viewModelScope.launch {
             val pageGamesModel = repository.getGames()
             refactorPageGamesModel = refactorPageGamesModel(pageGamesModel)
-            pageLiveData.value = refactorPageGamesModel
+            _pageLiveData.value = refactorPageGamesModel
         }
     }
 
@@ -33,7 +35,7 @@ class FinderViewModel: ViewModel() {
         )
     }
 
-        private fun refactorListGamesModel(listGameModelRetrofit: List<GameModelRetrofit>): List<GameModel> {
+    private fun refactorListGamesModel(listGameModelRetrofit: List<GameModelRetrofit>): List<GameModel> {
         return listGameModelRetrofit.map { gameModelRetrofit ->
             GameModel(
                 backgroundImage = gameModelRetrofit.backgroundImage,
