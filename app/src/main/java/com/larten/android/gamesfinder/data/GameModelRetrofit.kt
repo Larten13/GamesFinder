@@ -11,6 +11,5 @@ data class GameModelRetrofit(
     val id: Int,
     val metacritic: Int,
     val name: String,
-    val released: String,
-    val slug: String
+    val released: String
 )

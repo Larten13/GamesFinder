@@ -10,6 +10,5 @@ data class GenreModel(
     @Json(name = "image_background")
     val imageBackground: String,
     val id: Int,
-    val name: String,
-    val slug: String
+    val name: String
 )

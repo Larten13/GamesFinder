@@ -17,4 +17,10 @@ class GamesViewHolder(private val binding: RecyclerViewItemBinding) : RecyclerVi
         binding.dateOfRelease.text = game.released
         binding.genreOfGame.text = game.genres
     }
+
+    fun onClick(game: GameModel) {
+        binding.root.setOnClickListener {
+
+        }
+    }
 }

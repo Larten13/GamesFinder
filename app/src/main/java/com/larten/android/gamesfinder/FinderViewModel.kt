@@ -43,8 +43,7 @@ class FinderViewModel: ViewModel() {
                 id = gameModelRetrofit.id,
                 metacritic = gameModelRetrofit.metacritic,
                 name = gameModelRetrofit.name,
-                released = gameModelRetrofit.released,
-                slug = gameModelRetrofit.slug
+                released = gameModelRetrofit.released
             )
         }
     }
