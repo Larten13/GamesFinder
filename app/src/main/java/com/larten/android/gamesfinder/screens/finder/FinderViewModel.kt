@@ -1,4 +1,4 @@
-package com.larten.android.gamesfinder
+package com.larten.android.gamesfinder.screens.finder
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -43,8 +43,7 @@ class FinderViewModel: ViewModel() {
                 id = gameModelRetrofit.id,
                 metacritic = gameModelRetrofit.metacritic,
                 name = gameModelRetrofit.name,
-                released = gameModelRetrofit.released,
-                slug = gameModelRetrofit.slug
+                released = gameModelRetrofit.released
             )
         }
     }

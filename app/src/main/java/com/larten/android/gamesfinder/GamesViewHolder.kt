@@ -16,5 +16,6 @@ class GamesViewHolder(private val binding: RecyclerViewItemBinding) : RecyclerVi
         binding.nameOfGame.text = game.name
         binding.dateOfRelease.text = game.released
         binding.genreOfGame.text = game.genres
+
     }
 }
