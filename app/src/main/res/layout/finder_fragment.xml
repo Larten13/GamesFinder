@@ -16,21 +16,21 @@
         android:text=""/>
 
     <TextView
-        android:id="@+id/most_popular_genres"
+        android:id="@+id/most_popular_games"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_bar"
-        android:text="@string/most_popular_genres"/>
+        android:text="@string/most_popular_games"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_genres"
+        android:id="@+id/recycler_games"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/most_popular_genres"
+        app:layout_constraintTop_toBottomOf="@+id/most_popular_games"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingBottom="10dp"/>
 
 

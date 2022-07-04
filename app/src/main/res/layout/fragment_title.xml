@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/poster"
-        android:text="@string/name_of_title"
+        android:text="@string/name_of_game"
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
         android:paddingStart="2dp"
