@@ -1,10 +1,13 @@
 package com.larten.android.gamesfinder
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.larten.android.gamesfinder.data.GameModel
 import com.larten.android.gamesfinder.databinding.RecyclerViewItemBinding
+import com.larten.android.gamesfinder.screens.finder.FinderFragmentDirections
 
 class GamesAdapter: RecyclerView.Adapter<GamesViewHolder>() {
 
@@ -17,8 +20,11 @@ class GamesAdapter: RecyclerView.Adapter<GamesViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: GamesViewHolder, position: Int) {
-        val game = listGames[position]
-        holder.bind(game)
+        val currentGame = listGames[position]
+        holder.bind(currentGame)
+        holder.itemView.setOnClickListener {
+            onClickToTitle(it, currentGame)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -28,5 +34,10 @@ class GamesAdapter: RecyclerView.Adapter<GamesViewHolder>() {
     fun setList(list: List<GameModel>) {
         listGames = list
         notifyDataSetChanged()
+    }
+
+    private fun onClickToTitle(v: View, currentGame: GameModel) {
+        val action = FinderFragmentDirections.actionFinderFragmentToTitleFragment(currentGame.id)
+        v.findNavController().navigate(action)
     }
 }

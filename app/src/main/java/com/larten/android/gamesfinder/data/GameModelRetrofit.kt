@@ -13,3 +13,15 @@ data class GameModelRetrofit(
     val name: String,
     val released: String
 )
+
+fun refactorGameModel(gameModelRetrofit: GameModelRetrofit): GameModel {
+    return GameModel(
+        id = gameModelRetrofit.id,
+        backgroundImage = gameModelRetrofit.backgroundImage,
+        genres = gameModelRetrofit.genres.joinToString(",", "", "", -1, "") { it.name },
+        metacritic = gameModelRetrofit.metacritic,
+        name = gameModelRetrofit.name,
+        released = gameModelRetrofit.released,
+        description = ""
+    )
+}

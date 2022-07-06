@@ -15,11 +15,14 @@
     </fragment>
     <fragment
         android:id="@+id/titleFragment"
-        android:name="com.larten.android.gamesfinder.screens.title.TitleFragment"
+        android:name="com.larten.android.gamesfinder.screens.title.GameDescriptionFragment"
         android:label="fragment_title"
-        tools:layout="@layout/fragment_title" >
+        tools:layout="@layout/fragment_game_description" >
         <action
             android:id="@+id/action_titleFragment_to_finderFragment"
             app:destination="@id/finderFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
 </navigation>
