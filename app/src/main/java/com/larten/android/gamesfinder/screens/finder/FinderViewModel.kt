@@ -34,7 +34,7 @@ class FinderViewModel: ViewModel() {
 
     private fun refactorListGamesModel(listGameModelRetrofit: List<GameModelRetrofit>): List<GameModel> {
         return listGameModelRetrofit.map { gameModelRetrofit ->
-            refactorGameModel(gameModelRetrofit)
+            refactorGameModelRetrofit(gameModelRetrofit)
         }
     }
 }

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.replace
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.larten.android.gamesfinder.GamesAdapter
 import com.larten.android.gamesfinder.R
 import com.larten.android.gamesfinder.databinding.FinderFragmentBinding

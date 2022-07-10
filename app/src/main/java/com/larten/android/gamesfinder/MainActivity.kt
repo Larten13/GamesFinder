@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.larten.android.gamesfinder.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -17,5 +18,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+    }
+
+    override fun onBackPressed() {
+        navController.navigate(R.id.action_titleFragment_to_finderFragment)
     }
 }

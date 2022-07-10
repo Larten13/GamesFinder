@@ -14,7 +14,7 @@ data class GameModelRetrofit(
     val released: String
 )
 
-fun refactorGameModel(gameModelRetrofit: GameModelRetrofit): GameModel {
+fun refactorGameModelRetrofit(gameModelRetrofit: GameModelRetrofit): GameModel {
     return GameModel(
         id = gameModelRetrofit.id,
         backgroundImage = gameModelRetrofit.backgroundImage,
