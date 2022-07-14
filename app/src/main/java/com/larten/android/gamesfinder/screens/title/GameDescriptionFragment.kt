@@ -17,7 +17,7 @@ class GameDescriptionFragment : Fragment() {
 
     private lateinit var binding: FragmentGameDescriptionBinding
     private val viewModel: GameDescriptionViewModel by viewModels()
-    val args: GameDescriptionFragmentArgs by navArgs()
+    private val args: GameDescriptionFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +40,7 @@ class GameDescriptionFragment : Fragment() {
             binding.nameOfTitle.text = it.name
             binding.dateOfRelease.text = it.released
             binding.genres.text = it.genres
-            binding.metaScore.text = "Metacrictic: ${it.metacritic}"
+            binding.metaScore.text = getString(R.string.meta_score, it.metacritic)
             binding.description.text = it.description
         }
     }

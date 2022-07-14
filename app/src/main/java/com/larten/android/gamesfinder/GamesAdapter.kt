@@ -3,28 +3,28 @@ package com.larten.android.gamesfinder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.larten.android.gamesfinder.data.GameModel
 import com.larten.android.gamesfinder.databinding.RecyclerViewItemBinding
-import com.larten.android.gamesfinder.screens.finder.FinderFragmentDirections
 
-class GamesAdapter: RecyclerView.Adapter<GamesViewHolder>() {
+class GamesAdapter(
+    private val mListener: OnItemClickListener
+): RecyclerView.Adapter<GamesViewHolder>() {
 
     private var listGames = emptyList<GameModel>()
+
+    interface OnItemClickListener {
+        fun onItemClick(gameId: Int)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GamesViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = RecyclerViewItemBinding.inflate(inflater, parent, false)
-        return GamesViewHolder(binding)
+        return GamesViewHolder(binding, mListener)
     }
 
     override fun onBindViewHolder(holder: GamesViewHolder, position: Int) {
-        val currentGame = listGames[position]
-        holder.bind(currentGame)
-        holder.itemView.setOnClickListener {
-            onClickToTitle(it, currentGame)
-        }
+        holder.bind(listGames[position])
     }
 
     override fun getItemCount(): Int {
@@ -34,10 +34,5 @@ class GamesAdapter: RecyclerView.Adapter<GamesViewHolder>() {
     fun setList(list: List<GameModel>) {
         listGames = list
         notifyDataSetChanged()
-    }
-
-    private fun onClickToTitle(v: View, currentGame: GameModel) {
-        val action = FinderFragmentDirections.actionFinderFragmentToTitleFragment(currentGame.id)
-        v.findNavController().navigate(action)
     }
 }

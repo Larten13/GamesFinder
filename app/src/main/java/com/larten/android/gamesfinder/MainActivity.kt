@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.larten.android.gamesfinder.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

@@ -3,7 +3,7 @@
     <string name="name_of_game">Name of game</string>
     <string name="developer">Developer</string>
     <string name="date_of_release">Date of release</string>
-    <string name="meta_score">Metascore</string>
+    <string name="meta_score">Metascore: %1$s</string>
     <string name="gamers_score">Gamers score</string>
     <string name="poster_description">poster</string>
     <string name="description">Description</string>

@@ -1,9 +1,8 @@
 package com.larten.android.gamesfinder.screens.finder
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import android.util.Log
+import androidx.lifecycle.*
+import com.bumptech.glide.Glide.init
 import com.larten.android.gamesfinder.data.*
 import com.larten.android.gamesfinder.retrofit.GamesRepository
 import kotlinx.coroutines.launch
@@ -11,13 +10,12 @@ import kotlinx.coroutines.launch
 class FinderViewModel: ViewModel() {
     private val _pageLiveData = MutableLiveData<PageGamesModel>()
     val pageLiveData: LiveData<PageGamesModel> = _pageLiveData
-    private lateinit var refactorPageGamesModel: PageGamesModel
     private val repository = GamesRepository()
 
-    fun getGames() {
+    init {
         viewModelScope.launch {
             val pageGamesModel = repository.getGames()
-            refactorPageGamesModel = refactorPageGamesModel(pageGamesModel)
+            val refactorPageGamesModel = refactorPageGamesModel(pageGamesModel)
             _pageLiveData.value = refactorPageGamesModel
         }
     }
