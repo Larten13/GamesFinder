@@ -15,4 +15,6 @@
     <string name="most_popular_games">Most popular games</string>
     <string name="hint">Search game</string>
     <string name="esrb_rating">ESRB Rating</string>
+    <string name="hint_search">Find a game</string>
+    <string name="search">Search</string>
 </resources>

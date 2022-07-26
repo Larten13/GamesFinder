@@ -2,11 +2,13 @@ package com.larten.android.gamesfinder
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.larten.android.gamesfinder.databinding.ActivityMainBinding
+import com.larten.android.gamesfinder.screens.finder.FinderFragment
 
 class MainActivity : AppCompatActivity() {
 

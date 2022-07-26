@@ -11,7 +11,7 @@ class GamesAdapter(
     private val mListener: OnItemClickListener
 ): RecyclerView.Adapter<GamesViewHolder>() {
 
-    private var listGames = emptyList<GameModel>()
+    var listGames = emptyList<GameModel>()
 
     interface OnItemClickListener {
         fun onItemClick(gameId: Int)

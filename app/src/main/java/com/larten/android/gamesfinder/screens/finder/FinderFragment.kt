@@ -1,17 +1,12 @@
 package com.larten.android.gamesfinder.screens.finder
 
 import android.os.Bundle
-import android.os.Parcelable
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import com.larten.android.gamesfinder.GamesAdapter
-import com.larten.android.gamesfinder.data.GameModel
 import com.larten.android.gamesfinder.databinding.FinderFragmentBinding
 
 class FinderFragment : Fragment() {
@@ -27,7 +22,7 @@ class FinderFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        viewModel.getGames()
         adapter = GamesAdapter(
             object: GamesAdapter.OnItemClickListener {
                 override fun onItemClick(gameId: Int) {
@@ -40,5 +35,22 @@ class FinderFragment : Fragment() {
         viewModel.pageLiveData.observe(viewLifecycleOwner) {
             adapter.setList(it.results)
         }
+        setupSearchView()
+    }
+
+    private fun setupSearchView() {
+        val searchView = binding.searchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                viewModel.search(query)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                viewModel.search(newText)
+                return false
+            }
+
+        })
     }
 }
