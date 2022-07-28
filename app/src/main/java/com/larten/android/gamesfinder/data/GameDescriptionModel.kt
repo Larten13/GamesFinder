@@ -6,23 +6,23 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class GameDescriptionModel(
     @Json(name = "background_image")
-    val backgroundImage: String,
+    val backgroundImage: String?,
     var genres: List<GenreModel>,
     val id: Int,
-    val metacritic: Int,
+    val metacritic: Int?,
     val name: String,
-    val released: String,
+    val released: String?,
     @Json(name = "description_raw")
     val description: String
 )
     fun refactorGameDescriptionModel(gameDescriptionModel: GameDescriptionModel): GameModel {
         return GameModel(
             id = gameDescriptionModel.id,
-            backgroundImage = gameDescriptionModel.backgroundImage,
+            backgroundImage = gameDescriptionModel.backgroundImage ?: "No background image",
             genres = gameDescriptionModel.genres.joinToString(",", "", "", -1, "") { it.name },
-            metacritic = gameDescriptionModel.metacritic,
+            metacritic = gameDescriptionModel.metacritic ?: 0,
             name = gameDescriptionModel.name,
-            released = gameDescriptionModel.released,
+            released = gameDescriptionModel.released ?: "No release data",
             description = gameDescriptionModel.description
         )
     }

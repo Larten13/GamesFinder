@@ -7,18 +7,11 @@ import com.larten.android.gamesfinder.data.GameModel
 import com.larten.android.gamesfinder.databinding.RecyclerViewItemBinding
 
 class GamesViewHolder(
-    private val binding: RecyclerViewItemBinding,
-    private val listener: GamesAdapter.OnItemClickListener
-    ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
+    private val binding: RecyclerViewItemBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-    private lateinit var game: GameModel
-
-    init {
-        binding.root.setOnClickListener(this)
-    }
-
-    fun bind(item: GameModel) {
-        game = item
+    fun bind(item: GameModel, listener: GamesAdapter.OnItemClickListener) {
+        binding.root.setOnClickListener{listener.onItemClick(item.id)}
         Glide.with(itemView.context)
             .load(item.backgroundImage)
             .placeholder(R.drawable.ic_baseline_videogame_asset_24)
@@ -28,9 +21,5 @@ class GamesViewHolder(
         binding.dateOfRelease.text = item.released
         binding.genreOfGame.text = item.genres
         binding.metaScore.text = item.metacritic.toString()
-    }
-
-    override fun onClick(v: View) {
-        listener.onItemClick(game.id)
     }
 }

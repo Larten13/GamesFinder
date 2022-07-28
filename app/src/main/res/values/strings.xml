@@ -8,9 +8,6 @@
     <string name="poster_description">poster</string>
     <string name="description">Description</string>
     <string name="search_bar">Search</string>
-    <string name="most_popular_action">Most popular action</string>
-    <string name="most_popular_rpg">Most popular RPG</string>
-    <string name="most_popular_shooter">Most popular shooter</string>
     <string name="genre">Genre</string>
     <string name="most_popular_games">Most popular games</string>
     <string name="hint">Search game</string>

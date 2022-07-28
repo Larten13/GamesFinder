@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.finder.FinderFragment">
+    tools:context=".screens.finder.FinderFragment"
+    android:background="@color/secondaryDarkColor">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool_bar"
@@ -14,7 +15,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_scrollFlags="scroll|enterAlways">
+        app:layout_scrollFlags="scroll|enterAlways"
+        android:background="@color/primaryDarkColor">
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/search_view"
@@ -22,28 +24,22 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:queryHint="@string/hint"
-            android:text=""/>
+            android:queryHint="@string/hint" />
 
     </androidx.appcompat.widget.Toolbar>
-
-    <TextView
-        android:id="@+id/most_popular_games"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tool_bar"
-        android:text="@string/most_popular_games"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_games"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/most_popular_games"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
-        android:paddingBottom="10dp"/>
+        android:paddingBottom="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="8dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,6 +24,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        navController.navigate(R.id.action_titleFragment_to_finderFragment)
+        navController.popBackStack()
     }
 }
