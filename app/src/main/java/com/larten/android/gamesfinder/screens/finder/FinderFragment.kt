@@ -12,6 +12,7 @@ import com.larten.android.gamesfinder.GamesAdapter
 import com.larten.android.gamesfinder.data.PageGamesModel
 import com.larten.android.gamesfinder.databinding.FinderFragmentBinding
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -42,26 +43,26 @@ class FinderFragment : Fragment() {
         viewModel.pageLiveData.observe(viewLifecycleOwner) {
             adapter.setList(it.results)
         }
-        setupSearchView()
+        lifecycleScope.launch {
+            setupSearchView().debounce(400).collect {
+                viewModel.search(it)
+            }
+        }
     }
 
-    private fun setupSearchView() {
+    private fun setupSearchView() = callbackFlow<String> {
         val searchView = binding.searchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
+                trySend(query ?: "")
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                lifecycleScope.launch {
-                    viewModel.setQuery(newText)
-                    viewModel.search(viewModel.searchFlow).collect {
-                        adapter.setList(it.results)
-                    }
-                }
+                trySend(newText ?: "")
                 return false
             }
-
         })
+        awaitClose { searchView.setOnQueryTextListener(null) }
     }
 }
