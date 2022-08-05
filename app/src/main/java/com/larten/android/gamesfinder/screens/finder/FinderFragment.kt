@@ -1,13 +1,20 @@
 package com.larten.android.gamesfinder.screens.finder
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.larten.android.gamesfinder.GamesAdapter
+import com.larten.android.gamesfinder.data.PageGamesModel
 import com.larten.android.gamesfinder.databinding.FinderFragmentBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
 class FinderFragment : Fragment() {
 
@@ -42,12 +49,16 @@ class FinderFragment : Fragment() {
         val searchView = binding.searchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                viewModel.search(query)
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                viewModel.search(newText)
+                lifecycleScope.launch {
+                    viewModel.setQuery(newText)
+                    viewModel.search(viewModel.searchFlow).collect {
+                        adapter.setList(it.results)
+                    }
+                }
                 return false
             }
 

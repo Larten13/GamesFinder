@@ -2,6 +2,7 @@ package com.larten.android.gamesfinder.retrofit
 
 import com.larten.android.gamesfinder.data.GameDescriptionModel
 import com.larten.android.gamesfinder.data.PageGamesModelRetrofit
+import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
