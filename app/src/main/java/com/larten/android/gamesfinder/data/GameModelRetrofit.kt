@@ -11,6 +11,7 @@ data class GameModelRetrofit(
     val id: Int,
     val metacritic: Int?,
     val name: String,
+<<<<<<< HEAD
     val released: String?
 )
 
@@ -25,3 +26,7 @@ fun refactorGameModelRetrofit(gameModelRetrofit: GameModelRetrofit): GameModel {
         description = ""
     )
 }
+=======
+    val released: String
+)
+>>>>>>> master
