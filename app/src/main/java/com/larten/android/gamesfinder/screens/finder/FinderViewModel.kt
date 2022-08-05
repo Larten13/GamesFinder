@@ -40,6 +40,3 @@ class FinderViewModel: ViewModel() {
         }
     }
 }
-//        return flow {
-//            emit(refactorPageGamesModel(repository.search(query)))
-//        }.stateIn(viewModelScope)

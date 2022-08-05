@@ -1,6 +1,5 @@
 package com.larten.android.gamesfinder
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.larten.android.gamesfinder.data.GameModel

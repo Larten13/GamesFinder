@@ -22,8 +22,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/poster"
-        android:fillViewport="false">
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="180dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -103,11 +103,12 @@
                 android:id="@+id/description"
                 style="@style/TextAppearance.AppCompat.GeneralTextStyle.Description"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="@string/description"
-                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/date_of_release"
-                tools:ignore="RtlSymmetry" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="RtlSymmetry"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
