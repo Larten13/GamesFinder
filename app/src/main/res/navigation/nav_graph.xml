@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/finderFragment">
+    <fragment
+        android:id="@+id/finderFragment"
+        android:name="com.larten.android.gamesfinder.screens.finder.FinderFragment"
+        android:label="finder_fragment"
+        tools:layout="@layout/finder_fragment" >
+        <action
+            android:id="@+id/action_finderFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.larten.android.gamesfinder.screens.title.GameDescriptionFragment"
+        android:label="fragment_title"
+        tools:layout="@layout/fragment_game_description" >
+        <action
+            android:id="@+id/action_titleFragment_to_finderFragment"
+            app:destination="@id/finderFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+</navigation>

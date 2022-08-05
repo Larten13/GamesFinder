@@ -6,5 +6,10 @@ data class GameModel(
     val id: Int,
     val metacritic: Int,
     val name: String,
+<<<<<<< HEAD
+    val released: String,
+    val description: String
+=======
     val released: String
+>>>>>>> master
 )

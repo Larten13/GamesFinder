@@ -6,9 +6,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.larten.android.gamesfinder.data.GameModel
 import com.larten.android.gamesfinder.databinding.RecyclerViewItemBinding
 
-class GamesAdapter: RecyclerView.Adapter<GamesViewHolder>() {
+class GamesAdapter(
+    private val listener: OnItemClickListener
+): RecyclerView.Adapter<GamesViewHolder>() {
 
-    private var listGames = emptyList<GameModel>()
+    var listGames = emptyList<GameModel>()
+
+    interface OnItemClickListener {
+        fun onItemClick(gameId: Int)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GamesViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -17,7 +23,7 @@ class GamesAdapter: RecyclerView.Adapter<GamesViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: GamesViewHolder, position: Int) {
-        holder.bind(listGames[position])
+        holder.bind(listGames[position], listener)
     }
 
     override fun getItemCount(): Int {

@@ -3,15 +3,15 @@
     <string name="name_of_game">Name of game</string>
     <string name="developer">Developer</string>
     <string name="date_of_release">Date of release</string>
-    <string name="meta_score">Metascore</string>
+    <string name="meta_score">Metascore: %1$s</string>
     <string name="gamers_score">Gamers score</string>
     <string name="poster_description">poster</string>
     <string name="description">Description</string>
     <string name="search_bar">Search</string>
-    <string name="most_popular_action">Most popular action</string>
-    <string name="most_popular_rpg">Most popular RPG</string>
-    <string name="most_popular_shooter">Most popular shooter</string>
     <string name="genre">Genre</string>
     <string name="most_popular_games">Most popular games</string>
     <string name="hint">Search game</string>
+    <string name="esrb_rating">ESRB Rating</string>
+    <string name="hint_search">Find a game</string>
+    <string name="search">Search</string>
 </resources>
