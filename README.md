@@ -15,17 +15,24 @@
 
 • Retrofit2
 
+• Moshi
+
+• SafeAgrs
+
+• Glide
+
 API database
 ============
 • RAWG
 
-Макет фрагмента поиска
+Макет фрагмента поиска и главного экрана
 =======================
-![Screenshot_20220510-004941_GamesFinder](https://user-images.githubusercontent.com/75132297/167496320-a31c0d45-b7e6-4443-b721-e9ddab73c068.png)
+![Screenshot_20220808-200520_GamesFinder](https://user-images.githubusercontent.com/75132297/183464553-3f7e9f60-f2d6-42c3-87d9-18cd1e9aac64.png)
+![Screenshot_20220808-195352_GamesFinder 1](https://user-images.githubusercontent.com/75132297/183464595-bfcefed9-85f6-41a2-b6cd-2be0ce010f31.png)
 
 Макет фрагмента тайтла
 =======================
-![Screenshot_20220510-004756_GamesFinder](https://user-images.githubusercontent.com/75132297/167496438-5f3f545c-aead-4cde-bad7-57c2b87cc515.png)
+![Screenshot_20220808-195558_GamesFinder 1](https://user-images.githubusercontent.com/75132297/183464268-6e70c851-4e7b-4644-9b72-bfb5eea3c9e7.png)
 
 Разработчик
 ============
