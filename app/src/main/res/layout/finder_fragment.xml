@@ -8,35 +8,27 @@
     tools:context=".screens.finder.FinderFragment"
     android:background="@color/secondaryDarkColor">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tool_bar"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_scrollFlags="scroll|enterAlways"
-        android:background="@color/primaryDarkColor">
-
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/search_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:queryHint="@string/hint" />
-
-    </androidx.appcompat.widget.Toolbar>
+        app:layout_constraintStart_toStartOf="parent"
+        android:queryHint="@string/hint"
+        app:iconifiedByDefault="false"
+        android:background="@color/secondaryColor"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_games"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+        app:layout_constraintTop_toBottomOf="@+id/search_view"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
-        android:paddingBottom="8dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="16dp"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"/>
 
