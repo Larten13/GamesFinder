@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.larten.android.gamesfinder.data.*
+import com.larten.android.gamesfinder.data.games.GameModel
 import com.larten.android.gamesfinder.retrofit.GamesRepository
 import kotlinx.coroutines.launch
 
@@ -15,8 +15,7 @@ class GameDescriptionViewModel: ViewModel() {
 
     fun getGameInfo(id: Int) {
         viewModelScope.launch {
-            val gameModel = repository.getGameInfo(id)
-            _gameLiveData.value = refactorGameDescriptionModel(gameModel)
+            _gameLiveData.value = repository.getGameInfo(id)
         }
     }
 }

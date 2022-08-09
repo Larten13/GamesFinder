@@ -2,6 +2,7 @@ package com.larten.android.gamesfinder.retrofit
 
 import com.larten.android.gamesfinder.data.GameDescriptionModel
 import com.larten.android.gamesfinder.data.PageGamesModelRetrofit
+import com.larten.android.gamesfinder.data.genres.PageGenresModel
 import kotlinx.coroutines.flow.Flow
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -12,6 +13,9 @@ private const val KEY = "?key=517aba460acc4da0873a59a496d76e75"
 interface ApiService {
     @GET("games$KEY")
     suspend fun getGames(): PageGamesModelRetrofit
+
+    @GET("genres$KEY")
+    suspend fun getGenres(): PageGenresModel
 
     @GET("games/{id}$KEY")
     suspend fun getGameInfo(@Path("id") id: Int): GameDescriptionModel

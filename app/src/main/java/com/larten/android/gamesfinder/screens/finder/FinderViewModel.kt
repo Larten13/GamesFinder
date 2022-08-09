@@ -2,41 +2,30 @@ package com.larten.android.gamesfinder.screens.finder
 
 import androidx.lifecycle.*
 import com.larten.android.gamesfinder.data.*
+import com.larten.android.gamesfinder.data.games.GameModel
+import com.larten.android.gamesfinder.data.games.PageGamesModel
+import com.larten.android.gamesfinder.data.genres.PageGenresModel
 import com.larten.android.gamesfinder.retrofit.GamesRepository
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.*
 
 class FinderViewModel: ViewModel() {
-    private val _pageLiveData = MutableLiveData<PageGamesModel>()
-    val pageLiveData: LiveData<PageGamesModel> = _pageLiveData
+    private val _pageGamesLiveData = MutableLiveData<PageGamesModel>()
+    private val _pageGenresLiveData = MutableLiveData<PageGenresModel>()
+    val pageGamesLiveData: LiveData<PageGamesModel> = _pageGamesLiveData
+    val pageGenresLiveData: LiveData<PageGenresModel> = _pageGenresLiveData
     private val repository = GamesRepository()
 
-    fun getGames() {
+    init {
         viewModelScope.launch {
-            val pageGamesModel = repository.getGames()
-            val refactorPageGamesModel = refactorPageGamesModel(pageGamesModel)
-            _pageLiveData.value = refactorPageGamesModel
+            _pageGenresLiveData.value = repository.getGenres()
+            _pageGamesLiveData.value = repository.getGames()
         }
     }
 
     fun search(query: String) {
         viewModelScope.launch {
-            _pageLiveData.value = refactorPageGamesModel(repository.search(query))
+            _pageGamesLiveData.value = repository.search(query)
         }
     }
 
-    private fun refactorPageGamesModel(pageGamesModelRetrofit: PageGamesModelRetrofit): PageGamesModel {
-        return PageGamesModel(
-            count = pageGamesModelRetrofit.count,
-            next = pageGamesModelRetrofit.next,
-            previous = pageGamesModelRetrofit.previous,
-            results = refactorListGamesModel(pageGamesModelRetrofit.results)
-        )
-    }
-
-    private fun refactorListGamesModel(listGameModelRetrofit: List<GameModelRetrofit>): List<GameModel> {
-        return listGameModelRetrofit.map { gameModelRetrofit ->
-            refactorGameModelRetrofit(gameModelRetrofit)
-        }
-    }
 }

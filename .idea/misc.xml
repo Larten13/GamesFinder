@@ -16,9 +16,11 @@
         <entry key="..\:/Users/Larten/AndroidStudioProjects/GamesFinderFromGitHub_9.05.22/GamesFinder/app/src/main/res/layout/find_activity.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Larten/AndroidStudioProjects/GamesFinderFromGitHub_9.05.22/GamesFinder/app/src/main/res/layout/finder_fragment.xml" value="0.1" />
         <entry key="..\:/Users/Larten/AndroidStudioProjects/GamesFinderFromGitHub_9.05.22/GamesFinder/app/src/main/res/layout/recycler_view_item.xml" value="0.1" />
+        <entry key="..\:/Users/Larten/AndroidStudioProjects/fromMyGitHub/GamesFinder/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Larten/AndroidStudioProjects/fromMyGitHub/GamesFinder/app/src/main/res/layout/finder_fragment.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/Larten/AndroidStudioProjects/fromMyGitHub/GamesFinder/app/src/main/res/layout/fragment_game_description.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/Larten/AndroidStudioProjects/fromMyGitHub/GamesFinder/app/src/main/res/layout/recycler_view_item.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/Larten/AndroidStudioProjects/fromMyGitHub/GamesFinder/app/src/main/res/layout/genre_item.xml" value="0.365625" />
+        <entry key="..\:/Users/Larten/AndroidStudioProjects/fromMyGitHub/GamesFinder/app/src/main/res/layout/recycler_view_item.xml" value="0.33" />
         <entry key="..\:/Users/Larten/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_dropdown_item_1line.xml" value="0.36666666666666664" />
       </map>
     </option>
