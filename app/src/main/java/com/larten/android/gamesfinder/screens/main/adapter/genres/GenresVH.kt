@@ -1,4 +1,4 @@
-package com.larten.android.gamesfinder.screens.finder.adapter.genres
+package com.larten.android.gamesfinder.screens.main.adapter.genres
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -20,7 +20,7 @@ class GenresVH(
             binding.apply {
                 nameOfGenre.text = item.name
                 countOfGames.text = item.gamesCount.toString()
-                root.setOnClickListener {listener.onGenreClick(item.id)}
+                root.setOnClickListener {listener.onGenreClick(item.slug)}
             }
         }
 

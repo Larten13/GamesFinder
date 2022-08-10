@@ -1,4 +1,4 @@
-package com.larten.android.gamesfinder.screens.finder.adapter.genres
+package com.larten.android.gamesfinder.screens.main.adapter.genres
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,7 +13,7 @@ class GenresAdapter(
     private var genresList = emptyList<GenresModel>()
 
     interface OnItemClickListener {
-        fun onGenreClick(genreId: Int) {
+        fun onGenreClick(genre: String) {
 
         }
     }

@@ -17,6 +17,10 @@ class GamesRepository {
         return RetrofitInstance.api.getGenres()
     }
 
+    suspend fun getGamesOfGenres(genre: String): PageGamesModel {
+        return refactorPageGamesModel(RetrofitInstance.api.getGamesOfGenres(genre))
+    }
+
     suspend fun getGameInfo(id: Int): GameModel {
         return refactorGameDescriptionModel(RetrofitInstance.api.getGameInfo(id))
     }

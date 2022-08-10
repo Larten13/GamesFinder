@@ -17,6 +17,9 @@ interface ApiService {
     @GET("genres$KEY")
     suspend fun getGenres(): PageGenresModel
 
+    @GET("games$KEY")
+    suspend fun getGamesOfGenres(@Query("genres") genre: String): PageGamesModelRetrofit
+
     @GET("games/{id}$KEY")
     suspend fun getGameInfo(@Path("id") id: Int): GameDescriptionModel
 

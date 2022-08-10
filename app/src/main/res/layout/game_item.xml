@@ -33,9 +33,9 @@
                 style="@style/TextAppearance.AppCompat.GeneralTextStyle.TextStyleInCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/meta_score"
+                android:background="@color/highMetascore"
                 android:paddingTop="16dp"
-                android:background="@color/highMetascore"/>
+                android:text="@string/meta_score" />
     </RelativeLayout>
 
         <TextView

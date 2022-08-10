@@ -14,6 +14,7 @@ data class PageGenresModel(
 data class GenresModel(
     val id: Int,
     val name: String,
+    val slug: String,
     @Json(name = "games_count")
     val gamesCount: Int,
     @Json(name = "image_background")
