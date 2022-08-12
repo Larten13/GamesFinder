@@ -19,11 +19,4 @@ class MainViewModel: ViewModel() {
             _pageGamesLiveData.value = repository.getGames()
         }
     }
-
-    fun search(query: String) {
-        viewModelScope.launch {
-            _pageGamesLiveData.value = repository.search(query)
-        }
-    }
-
 }

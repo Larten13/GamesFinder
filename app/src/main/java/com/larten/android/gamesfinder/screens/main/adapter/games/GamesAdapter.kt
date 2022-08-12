@@ -16,7 +16,7 @@ class GamesAdapter(
     private var listGames = emptyList<GameModel>()
 
     interface OnItemClickListener {
-        fun onItemClick(gameId: Int)
+        fun onGameClick(gameId: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

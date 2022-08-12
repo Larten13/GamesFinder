@@ -32,13 +32,20 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapters()
+        viewModel.pageGamesLiveData.observe(viewLifecycleOwner) {
+            gamesAdapter.setList(it.results)
+        }
+
+        viewModel.pageGenresLiveData.observe(viewLifecycleOwner) {
+            genresAdapter.setGenresList(it.results)
+        }
     }
 
 
     private fun initAdapters() {
         gamesAdapter = GamesAdapter(
             object: GamesAdapter.OnItemClickListener {
-                override fun onItemClick(gameId: Int) {
+                override fun onGameClick(gameId: Int) {
                     val action = MainFragmentDirections.actionMainFragmentToTitleFragment(gameId)
                     findNavController().navigate(action)
                 }
@@ -48,7 +55,7 @@ class MainFragment : Fragment() {
         genresAdapter = GenresAdapter(
             object: GenresAdapter.OnItemClickListener {
                 override fun onGenreClick(genre: String) {
-                    val action = MainFragmentDirections.actionMainFragmentToFinderFragment(genre)
+                    val action = MainFragmentDirections.actionMainFragmentToFinderFragment().setGenre(genre)
                     findNavController().navigate(action)
                 }
             }
@@ -57,13 +64,5 @@ class MainFragment : Fragment() {
         binding.recyclerGames.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerGames.adapter = gamesAdapter
         binding.recyclerGenres.adapter = genresAdapter
-
-        viewModel.pageGamesLiveData.observe(viewLifecycleOwner) {
-            gamesAdapter.setList(it.results)
-        }
-
-        viewModel.pageGenresLiveData.observe(viewLifecycleOwner) {
-            genresAdapter.setGenresList(it.results)
-        }
     }
 }

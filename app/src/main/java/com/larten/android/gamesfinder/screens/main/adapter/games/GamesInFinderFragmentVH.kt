@@ -41,7 +41,7 @@ class GamesInFinderFragmentVH(
             nameOfGameInFinder.text = item.name
             dateOfReleaseInFinder.text = item.released
             genreOfGameInFinder.text = item.genres
-            root.setOnClickListener{listener.onItemClick(item.id)}
+            root.setOnClickListener{listener.onGameClick(item.id)}
         }
     }
 }
@@ -62,7 +62,7 @@ class GamesInMainFragmentVH(
             dateOfRelease.text = item.released
             genreOfGame.text = item.genres
             metaScore.text = item.metacritic.toString()
-            root.setOnClickListener{listener.onItemClick(item.id)}
+            root.setOnClickListener{listener.onGameClick(item.id)}
 
         }
     }

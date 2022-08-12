@@ -2,17 +2,23 @@ package com.larten.android.gamesfinder.screens.finder
 
 import android.os.Bundle
 import android.util.Log
+import android.view.*
+import androidx.appcompat.widget.SearchView
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.larten.android.gamesfinder.R
 import com.larten.android.gamesfinder.databinding.FragmentFinderBinding
 import com.larten.android.gamesfinder.screens.main.adapter.games.GamesAdapter
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.launch
 
 class FinderFragment : Fragment() {
 
@@ -30,11 +36,26 @@ class FinderFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val currentGenre = args.nameOfGenre
+        val currentQuery = args.query
+        val currentGenre = args.genre
+        Log.d("Finder", currentQuery)
+        initAdapter()
         viewModel.getGamesOfGenres(currentGenre)
+        if (currentQuery != "") {
+            viewModel.search(currentQuery)
+        }
+
+        viewModel.liveData.observe(viewLifecycleOwner) {
+            adapter.setList(it.results)
+        }
+
+
+    }
+
+    private fun initAdapter() {
         adapter = GamesAdapter(
             object: GamesAdapter.OnItemClickListener {
-                override fun onItemClick(gameId: Int) {
+                override fun onGameClick(gameId: Int) {
                     val action = FinderFragmentDirections.actionFinderFragmentToTitleFragment(gameId)
                     findNavController().navigate(action)
                 }
@@ -44,9 +65,6 @@ class FinderFragment : Fragment() {
 
         binding.recyclerFinder.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.recyclerFinder.adapter = adapter
-
-        viewModel.liveData.observe(viewLifecycleOwner) {
-            adapter.setList(it.results)
-        }
     }
+
 }

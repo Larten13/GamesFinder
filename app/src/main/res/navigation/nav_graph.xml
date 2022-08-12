@@ -40,7 +40,12 @@
             android:id="@+id/action_finderFragment_to_titleFragment"
             app:destination="@id/gameDescriptionFragment" />
         <argument
-            android:name="name_of_genre"
-            app:argType="string" />
+            android:name="query"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="genre"
+            app:argType="string"
+            android:defaultValue=""/>
     </fragment>
 </navigation>
