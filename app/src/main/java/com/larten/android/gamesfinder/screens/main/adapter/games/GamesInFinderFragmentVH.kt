@@ -12,25 +12,6 @@ class GamesInFinderFragmentVH(
     private val listener: GamesAdapter.OnItemClickListener
 ) : RecyclerView.ViewHolder(binding.root) {
 
-//    private val binding: GameItemBinding
-//    ): RecyclerView.ViewHolder(itemView) {
-
-//    fun bind(item: GameModel, listener: GamesAdapter.OnItemClickListener) {
-//        Glide.with(itemView.context)
-//            .load(item.backgroundImage)
-//            .placeholder(R.drawable.ic_baseline_videogame_asset_24)
-//            .centerCrop()
-//            .into(binding.posterOfGame)
-//
-//        binding.apply {
-//            nameOfGame.text = item.name
-//            dateOfRelease.text = item.released
-//            genreOfGame.text = item.genres
-//            metaScore.text = item.metacritic.toString()
-//            root.setOnClickListener{listener.onItemClick(item.id)}
-//        }
-//    }
-
     fun bind(item: GameModel) {
         Glide.with(itemView.context)
             .load(item.backgroundImage)

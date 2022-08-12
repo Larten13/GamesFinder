@@ -2,20 +2,14 @@ package com.larten.android.gamesfinder.screens.main
 
 import android.os.Bundle
 import android.view.*
-import androidx.appcompat.widget.LinearLayoutCompat
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.larten.android.gamesfinder.R
 import com.larten.android.gamesfinder.screens.main.adapter.games.GamesAdapter
 import com.larten.android.gamesfinder.screens.main.adapter.genres.GenresAdapter
 import com.larten.android.gamesfinder.databinding.MainFragmentBinding
-import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
 
 class MainFragment : Fragment() {
 
