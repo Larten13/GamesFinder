@@ -22,7 +22,7 @@
 
         <TextView
             style="@style/TextAppearance.AppCompat.GeneralTextStyle.HeaderInCard"
-            android:id="@+id/name_of_game"
+            android:id="@+id/name_of_game_in_finder"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/name_of_game"
@@ -33,29 +33,29 @@
 
         <TextView
             style="@style/TextAppearance.AppCompat.GeneralTextStyle.TextStyleInCard"
-            android:id="@+id/date_of_release"
+            android:id="@+id/date_of_release_in_finder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@+id/poster_of_game"
-            app:layout_constraintTop_toBottomOf="@+id/name_of_game"
+            app:layout_constraintTop_toBottomOf="@+id/name_of_game_in_finder"
             android:text="@string/date_of_release"/>
 
         <TextView
             style="@style/TextAppearance.AppCompat.GeneralTextStyle.TextStyleInCard"
-            android:id="@+id/genre_of_game"
+            android:id="@+id/genre_of_game_in_finder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@+id/poster_of_game"
-            app:layout_constraintTop_toBottomOf="@+id/date_of_release"
+            app:layout_constraintTop_toBottomOf="@+id/date_of_release_in_finder"
             android:text="@string/genre"/>
 
         <TextView
             style="@style/TextAppearance.AppCompat.GeneralTextStyle.TextStyleInCard"
-            android:id="@+id/meta_score"
+            android:id="@+id/meta_score_in_finder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@+id/poster_of_game"
-            app:layout_constraintTop_toBottomOf="@+id/genre_of_game"
+            app:layout_constraintTop_toBottomOf="@+id/genre_of_game_in_finder"
             android:text="@string/meta_score"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
